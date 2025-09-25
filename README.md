@@ -1,8 +1,8 @@
-# PDive2 (Go Edition)
+# PDIve2 (Go Edition)
 
 **Dive deep into the network** - An automated penetration testing discovery tool for authorized security assessments.
 
-PDive2 is a high-performance Go rewrite of the original PDIve tool, featuring both passive and active discovery modes. Built for security professionals conducting authorized network assessments, vulnerability testing, and OSINT gathering.
+PDIve2 is a high-performance Go rewrite of the original PDIve tool, featuring both passive and active discovery modes. Built for security professionals conducting authorized network assessments, vulnerability testing, and OSINT gathering.
 
 ## Key Features
 
@@ -441,5 +441,6 @@ echo -e "example.com\ncompany.org\ntarget.net" > domains.txt
 This tool is provided for educational and authorized security testing purposes only.
 
 ## Disclaimer
+
 
 The authors are not responsible for any misuse of this tool. Users are solely responsible for ensuring they have proper authorization before using this tool on any network or system. Both passive and active reconnaissance should be conducted within the bounds of authorized testing scope and applicable laws.
