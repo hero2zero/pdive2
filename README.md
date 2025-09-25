@@ -20,7 +20,7 @@ PDive2 is a high-performance Go rewrite of the original PDIve tool, featuring bo
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/pdive2.git
+git clone https://github.com/hero2zero/pdive2.git
 cd pdive2
 
 # Build the binary
@@ -32,17 +32,26 @@ go build -o pdive2 .
 
 ### Option 2: Download Pre-compiled Binary
 
+**Note**: Pre-compiled binaries will be available once the project is published to GitHub releases.
+
 ```bash
-# Download from releases (when available)
-wget https://github.com/your-org/pdive2/releases/latest/download/pdive2-linux-amd64
-chmod +x pdive2-linux-amd64
-mv pdive2-linux-amd64 pdive2
+# This will be available after first release:
+# wget https://github.com/hero2zero/pdive2/releases/latest/download/pdive2-linux-amd64
+# chmod +x pdive2-linux-amd64
+# mv pdive2-linux-amd64 pdive2
+
+# For now, use Option 1 (build from source) or Option 3 (go install)
 ```
 
 ### Option 3: Install with Go
 
+**Note**: Go install will be available once the project is published to a Git repository.
+
 ```bash
-go install github.com/your-org/pdive2@latest
+# This will be available after publishing:
+# go install github.com/hero2zero/pdive2@latest
+
+# For now, use Option 1 (build from source)
 ```
 
 ## Prerequisites
@@ -276,7 +285,7 @@ require (
 ### Development Build
 ```bash
 # Clone and build
-git clone https://github.com/your-org/pdive2.git
+git clone https://github.com/hero2zero/pdive2.git
 cd pdive2
 go mod tidy
 go build -o pdive2 .
