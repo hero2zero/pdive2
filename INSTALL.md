@@ -6,18 +6,16 @@ This guide covers different installation methods for PDive2, from simple binary 
 
 ### Option 1: Download Pre-built Binary
 
+**Note**: Pre-compiled binaries will be available once the project is published to GitHub releases.
+
 ```bash
-# Download the latest release for Linux x64
-curl -L -o pdive2 https://github.com/your-org/pdive2/releases/latest/download/pdive2-linux-amd64
+# This will be available after first release:
+# curl -L -o pdive2 https://github.com/your-org/pdive2/releases/latest/download/pdive2-linux-amd64
+# chmod +x pdive2
+# sudo mv pdive2 /usr/local/bin/
+# pdive2 --version
 
-# Make executable
-chmod +x pdive2
-
-# Move to PATH (optional)
-sudo mv pdive2 /usr/local/bin/
-
-# Test installation
-pdive2 --version
+# For now, use Option 2 (build from source)
 ```
 
 ### Option 2: Build from Source
@@ -37,15 +35,15 @@ make build
 
 ### Option 3: Go Install
 
+**Note**: Go install will be available once the project is published to a Git repository.
+
 ```bash
-# Install directly with Go
-go install github.com/your-org/pdive2@latest
+# This will be available after publishing:
+# go install github.com/your-org/pdive2@latest
+# export PATH=$PATH:$(go env GOPATH)/bin
+# pdive2 --version
 
-# Ensure $GOPATH/bin is in your PATH
-export PATH=$PATH:$(go env GOPATH)/bin
-
-# Test installation
-pdive2 --version
+# For now, use Option 2 (build from source)
 ```
 
 ## System Requirements
@@ -58,6 +56,42 @@ pdive2 --version
 ### Go Version (for building)
 - **Go 1.21** or higher required
 - Earlier versions are not supported
+
+## Installing Go
+
+### Ubuntu/Debian
+
+#### Option 1: Using apt (Simple but may not be latest)
+```bash
+# Install Go from Ubuntu/Debian repositories
+sudo apt update
+sudo apt install golang-go
+
+# Verify installation
+go version
+
+# Note: This may install an older version of Go
+# Check if version is 1.21+ for PDive2 compatibility
+```
+
+#### Option 2: Manual Installation (Recommended for latest version)
+```bash
+# Download and install latest Go
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+
+# Add to PATH
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify installation
+go version
+```
+
+### Other Operating Systems
+- **macOS**: Use Homebrew (`brew install go`) or download from https://go.dev/dl/
+- **Windows**: Download installer from https://go.dev/dl/
 
 ## External Tool Dependencies
 
@@ -115,6 +149,10 @@ sudo apt update
 sudo apt install -y amass masscan nmap curl git
 
 # Install Go (if not already installed)
+# Option 1: Using apt (Ubuntu/Debian - may not be latest version)
+sudo apt install golang-go
+
+# Option 2: Install latest Go manually (recommended)
 wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
@@ -324,10 +362,16 @@ External Tools:
 
 #### 1. "Go not found"
 ```bash
-# Install Go
+# Install Go - Option 1: Using apt (Ubuntu/Debian)
+sudo apt update && sudo apt install golang-go
+
+# Install Go - Option 2: Manual installation (latest version)
 curl -L https://go.dev/dl/go1.21.0.linux-amd64.tar.gz -o go.tar.gz
 sudo tar -C /usr/local -xzf go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
+
+# Verify installation
+go version
 ```
 
 #### 2. "amass: command not found"
